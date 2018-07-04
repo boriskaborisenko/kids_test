@@ -11,6 +11,10 @@ app.get('/conv',function(req,res){
     res.sendFile(__dirname+'/conv.html');
 });
 
+app.get('/game',function(req,res){
+    res.sendFile(__dirname+'/game.html');
+});
+
 
 app.use('/css',express.static(__dirname + '/src/css'));
 app.use('/js',express.static(__dirname + '/src/js'));
