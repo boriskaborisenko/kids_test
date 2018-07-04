@@ -20,6 +20,9 @@ var stopper;
 var hero;
 var scoreGems=0;
 var scoreText;
+var levelpoints;
+var gems_green;
+var getgem; 
 
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -65,6 +68,8 @@ function preload(){
 	this.load.spritesheet('gem_green', 'game_content/gems_green.png', { frameWidth: 32, frameHeight: 32 });
 	this.load.spritesheet('gem_red', 'game_content/gems_red.png', { frameWidth: 32, frameHeight: 32 });
 	this.load.spritesheet('hero', 'game_content/dude.png', { frameWidth: 32, frameHeight: 48 });
+	
+	this.load.audio('getgem', 'game_content/gem.mp3');
 }
 
 function create(){
@@ -91,7 +96,7 @@ function create(){
 	
 	
 	
-	var levelpoints = [];
+	levelpoints = [];
 	var allpoints = [
 	 mainpath.getPoint(0.25),
 	 mainpath.getPoint(0.40),
@@ -107,11 +112,13 @@ function create(){
         repeat: -1
     });
 	
-	var gems_green = this.physics.add.group();
+	gems_green = this.physics.add.group();
     levelpoints.map(function (i) { 
 	   this.gem_green = gems_green.create(i.x, i.y,  'gem_green');
 	   gem_green.anims.play('rotate_gem_green', true);
 	});
+	
+	getgem = this.sound.add('getgem');
 	
 	
 	
@@ -157,6 +164,8 @@ function create(){
 	
 }
 
+
+
 function update(){
 	document.getElementById('carlap').innerHTML = carlap;
 	document.getElementById('anslap').innerHTML = answer_lap;
@@ -167,11 +176,18 @@ function update(){
 
 
 
+function stopCar(){
+	hero.pauseFollow();
+}
 
+function turnOn(){
+	hero.resumeFollow();
+}
 
 function collect(hero, gem){
 	console.log('collect gem');
 	gem.disableBody(true, true);
+	getgem.play();
 	scoreGems += 10;
     scoreText.setText('Score: ' + scoreGems);
 }
@@ -184,6 +200,8 @@ function activateStartLine(){
 	stopstart.body.enable = true;
 }
 
+
+
 function carLaps(){
 	stopstart.body.enable = false;        
 	carlap++;
@@ -193,23 +211,22 @@ function carLaps(){
 	if(carlap >laps){
 		alert('FINISH!!! But u still a racer inside)))');
 	}else{
-		//  A new batch of stars to collect
-        /*
-        gems_green.children.iterate(function (child) {
-			gem_green.enableBody(true, child.x, 0, true, true);
-		});
-		*/
+		
+		///////////////// respawn gems /////////////
+		if(carlap > 1){
+			levelpoints.map(function (i) { 
+				this.gem_green = gems_green.create(i.x, i.y,  'gem_green');
+				gem_green.anims.play('rotate_gem_green', true);
+			});
+		}
+		//////////// respawn gems /////////////
+		
+		
 	}
 }
 
 
-function stopCar(){
-	hero.pauseFollow();
-}
 
-function turnOn(){
-	hero.resumeFollow();
-}
 
 
 
