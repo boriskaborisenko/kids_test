@@ -58,9 +58,10 @@ var config = {
 
 var game = new Phaser.Game(config);
 
-var gth = 'http://boriskaborisenko.github.io/kids_test/src/';
+var gth = 'http://boriskaborisenko.github.io/kids_test/src/images/race.jpg';
 
 function preload(){
+	this.load.crossOrigin = true;
 	this.load.image('map', gth+'images/race.jpg');
 	this.load.image('map_over', gth+'images/race_over.png');
 	this.load.image('brick', gth+'images/brick.png');
