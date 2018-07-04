@@ -58,7 +58,7 @@ var config = {
 
 var game = new Phaser.Game(config);
 
-var gth = 'http://boriskaborisenko.github.io/kids_test/src/images/race.jpg';
+var gth = 'https://boriskaborisenko.github.io/kids_test/src/';
 
 function preload(){
 	this.load.crossOrigin = true;
