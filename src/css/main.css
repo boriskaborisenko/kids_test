@@ -1,5 +1,5 @@
 
-body{background: rgba(0,0,0,1); font-family: 'Arial'; margin: 0; padding: 0; position: relative; }
+body{background: #fafbfc; font-family: 'Arial'; margin: 0; padding: 0; position: relative; }
 
 .allgame{position: relative; width: 100%; height: 100%; background: transparent; }
 
@@ -16,4 +16,18 @@ body{background: rgba(0,0,0,1); font-family: 'Arial'; margin: 0; padding: 0; pos
 :-webkit-full-screen{
   width: 100%;
   height: 100%;
+}
+
+
+#joy{position: relative;}
+.row{font-size: 0;}
+.btn{width: 40px; height: 40px; border: 1px solid #ccc; border-collapse: collapse; display: inline-block; font-size: 12px; text-align: center; line-height: 40px;}
+.mb{background-color: #ccc;}
+.sb{background-color: #eee;}
+
+.disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }

@@ -2,36 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>GAME</title>
-	<script src="/js/phaser.min.js"></script> 
+	<title>GAMEHTML</title>
+	
+	
+	<script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script> -->
+	
 	<link rel="stylesheet" href="/css/main.css">
     
 </head>
 <body>
 	
-	<!-- <div id="test" style="background: olive;">test</div> -->
 	
-	
-	
-	<!--<div id="abs">-->
 		<div id="allgame" class="allgame">
-			<div class="controls">
-				<div>Answers: <span id="points">0</span></div>
-				<div class="sm">Car On Lap: <span id="carlap">0</span></div>
-				<div class="sm">Answer LAP: <span id="anslap">0</span></div>
-				<div class="sm" style="color:red" id="warn"></div>
-				<div><button onclick="answer()">GET ANSWER</button></div>
-				<div>
-					<button onclick="stopCar()">turn OFF engine</button>
-					<button onclick="turnOn()">turn ON engine</button>
-					
-				</div>
+			<div id="controls" style="position: absolute; width: 200px; height: 140px; bottom:50px; right: 50px; background: #232323; opacity: 0.4; color:#fff; box-sizing: border-box; padding: 20px;">
+				<!-- <input id="x" type="text" placeholder="x">
+				<input id="y" type="text" placeholder="y"> -->
+				<button onclick="hit()">hit</button>
+				<!--<button onclick="move()">move</button>
+				<button onclick="removePlayer('02')">Remove 02</button>-->
 			</div>
-			<div id="gamediv"></div>
+			<div id="game"></div>
 		</div>
-	<!--</div>-->
 	
-	<script src="js/f3.js"></script>
+	
+	<script src="js/health.js"></script>
 	
 	
 	

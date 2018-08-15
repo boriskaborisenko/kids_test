@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="box" style="font-size: 20px; color:red;">gdahsjgdhjasgdasjhgdsahjgd</div>	
+
+<!-- <div>	
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+
+	<path id="path" d="M627.6,227.1c-126,1.5-225-13.5-279,31.5c-48,40-30.5,594-4.5,747c9.9,58.2,474,22.9,468-66
+		c-4.7-69.1-264-15-289.5-55.5c-37.6-59.7-46.5-313.5-6-324c40.5-10.5,825-12,876-6c51,6,111,33,148.5,33c37.5,0,78-36,79.5-70.5
+		s-13.5-337.5-13.5-337.5s-24-55.5-87-48c-63,7.5-75,63-75,87s37.5,172.5-4.5,208.5s-408,34.5-442.5,4.5s19.5-126-28.5-172.5
+		C921.6,212.1,627.6,227.1,627.6,227.1z"/>
+
+</svg>
+</div>
+<div>
+<canvas id="canvas" width="1920" height="1080" /> 
+	</div> -->
+	
+	<script>
+		
+
+var polygonPoints = [];
+var canvsize = 1920;		
+var mypath = document.createElementNS("http://www.w3.org/2000/svg", "path")
+  mypath.setAttribute('d', 'M627.6,227.1c-126,1.5-225-13.5-279,31.5c-48,40-30.5,594-4.5,747c9.9,58.2,474,22.9,468-66 c-4.7-69.1-264-15-289.5-55.5c-37.6-59.7-46.5-313.5-6-324c40.5-10.5,825-12,876-6c51,6,111,33,148.5,33c37.5,0,78-36,79.5-70.5 s-13.5-337.5-13.5-337.5s-24-55.5-87-48c-63,7.5-75,63-75,87s37.5,172.5-4.5,208.5s-408,34.5-442.5,4.5s19.5-126-28.5-172.5 C921.6,212.1,627.6,227.1,627.6,227.1z')
+ 
+var totalPathLength = mypath.getTotalLength();		
+for (var i=0; i<canvsize; i++) {
+  var p = mypath.getPointAtLength(i * totalPathLength / canvsize);
+  polygonPoints.push(p.x);
+  polygonPoints.push(p.y);
+}	
+
+console.log(totalPathLength);
+document.getElementById('box').innerHTML = polygonPoints.toString();		
+		
+		
+/*		
+		
+var canvas = document.getElementById("canvas");
+var canvasWidth = canvas.width;
+var canvasHeight = canvas.height;
+var ctx = canvas.getContext("2d");
+var path = document.getElementById('path');
+for ( var i=0,l=1920; i<l; i++ ){
+	var point = path.getPointAtLength( i/l * path.getTotalLength() );
+	dots.push(point.x, point.y);
+}
+console.log(dots);
+document.getElementById('box').innerHTML = dots.toString();
+*/
+	</script>
+</body>
+</html>

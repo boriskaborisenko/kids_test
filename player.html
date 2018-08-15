@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GAMEHTML-PLAYER</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.3">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+	<link rel="stylesheet" href="/css/main.css">
+    
+</head>
+<body id="dpad" class="disable-select">
+	
+	
+		<div style="margin: 10px;">player</div>
+		
+		<!--
+		<div id="joy" style="margin-left: 10px;">
+			<div class="row">
+				<div id="left" class="btn sb" ontouchstart="pad('up-left')" style="border-radius: 100px 0 0 0">ul</div>
+				<div id="left" class="btn mb" ontouchstart="pad('up')">up</div>
+				<div id="left" class="btn sb" ontouchstart="pad('up-right')" style="border-radius: 0 100px 0 0">ur</div>
+			</div>
+			
+			<div class="row">
+				<div id="left" class="btn mb" ontouchstart="pad('left')">left</div>
+				<div id="left" class="btn" ontouchstart="pad('stop')">stop</div>
+				<div id="left" class="btn mb" ontouchstart="pad('right')">right</div>
+			</div>
+			
+			<div class="row">
+				<div id="left" class="btn sb" ontouchstart="pad('down-left')" style="border-radius: 0 0 0 100px">dl</div>
+				<div id="left" class="btn mb" ontouchstart="pad('down')">down</div>
+				<div id="left" class="btn sb" ontouchstart="pad('down-right')" style="border-radius: 0 0 100px 0">dr</div>
+			</div>
+			
+		</div>-->
+		
+		
+		<div id="left" onclick="move('pseudo-left')">left</div>
+		<div id="right" onclick="move('pseudo-right')">right</div>
+		<script>
+			var self = this;
+			this.socket = io();
+			
+			function move(move){
+				console.log(move)
+				self.socket.emit('move', move);
+			}
+			
+			
+			/*
+			var dpad = document.getElementById('dpad');
+			//dpad.onkeydown = dpad.onkeyup = dpad.onkeypress = handle;
+			dpad.onkeydown = handle;
+			dpad.onkeyup = stop;
+			
+			function handle(e){
+				
+				if(e.keyCode==37){
+					var movement = 'left';
+					console.log('←')	
+				}
+				
+				if(e.keyCode==38){
+					var movement = 'up';
+					console.log('↑')	
+				}
+				
+				if(e.keyCode==39){
+					var movement = 'right';
+					console.log('→')	
+				}
+				
+				if(e.keyCode==40){
+					var movement = 'down';
+					console.log('↓')	
+				}
+				
+				
+				 self.socket.emit('move', movement);
+				
+				
+			}
+			
+			function stop(e){
+				self.socket.emit('move', 'stop');
+			}
+			
+			
+			function pad(arrow){
+				console.log(arrow)
+				self.socket.emit('move', arrow);
+			}
+			*/
+		</script>
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
