@@ -28,16 +28,18 @@ var cannon;
 var bullet;
 var bang;
 
+var url = 'https://raw.githubusercontent.com/boriskaborisenko/kids_test/master/src/';
+
 function preload(){
-	this.load.image('frame', 'images/hb/frame.png');
-	this.load.image('bg', 'images/hb/bg.png');
-	this.load.image('line', 'images/hb/line.png');
-	this.load.image('line2', 'images/hb/line2.png');
-	this.load.image('boss', 'images/boss/pirate.png');
-	this.load.image('level', 'images/boss/level.png');
-	this.load.image('cannon', 'images/boss/cannon.png');
-	this.load.spritesheet('bullet', 'images/boss/bullet.png', { frameWidth: 150, frameHeight: 100 });
-	this.load.spritesheet('bang', 'images/boss/bang.png', { frameWidth: 150, frameHeight: 100 });
+	this.load.image('frame', url+'images/hb/frame.png');
+	this.load.image('bg', url+'images/hb/bg.png');
+	this.load.image('line', url+'images/hb/line.png');
+	this.load.image('line2', url+'images/hb/line2.png');
+	this.load.image('boss', url+'images/boss/pirate.png');
+	this.load.image('level', url+'images/boss/level.png');
+	this.load.image('cannon', url+'images/boss/cannon.png');
+	this.load.spritesheet('bullet', url+'images/boss/bullet.png', { frameWidth: 150, frameHeight: 100 });
+	this.load.spritesheet('bang', url+'images/boss/bang.png', { frameWidth: 150, frameHeight: 100 });
 }
 
 function create(){
@@ -45,7 +47,7 @@ function create(){
 	this.add.image(0, 0, 'level').setOrigin(0,0);
 	
 	self = this;
-	posX = 10;
+	posX = 450;
 	posY = 10;
 	this.add.image(posX, posY, 'bg').setOrigin(0,0).setDepth(1000);
 	this.add.image(posX, posY, 'frame').setOrigin(0,0).setDepth(1003);
