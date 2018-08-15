@@ -18,6 +18,10 @@ app.get('/conv',function(req,res){
     res.sendFile(__dirname+'/conv.html');
 });
 
+app.get('/boss',function(req,res){
+    res.sendFile(__dirname+'/boss.html');
+});
+
 app.get('/player',function(req,res){
     res.sendFile(__dirname+'/player.html');
 });
